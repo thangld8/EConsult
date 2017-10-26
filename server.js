@@ -1,47 +1,51 @@
+/**
+ * Created by phamquangkhang on 4/12/17.
+ */
+'use strict';
 
-import "babel-polyfill";
-import express from "express";
-import morgan from "morgan";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import router from "./routes/routes";
+/****************************** Variables ******************************/
+
+var express = require('express');
+var http = require('http');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 
-const app = express();
+/****************************** Mongo DB  ******************************/
+var db_username = require("./app_config.json").MONGO_DATABASE_USERNAME;
+var db_password = require("./app_config.json").MONGO_DATABASE_PASSWORD;
+var db_url = require("./app_config.json").MONGO_DATABASE_URL;
+var connection_string = "mongodb://" + db_username + ":" + db_password + db_url;
+mongoose.connect(connection_string);
+//mongoose.connect('mongodb://localhost/techkids');
 
-const port = process.env.PORT || 3001;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'DB connection error: '));
+db.once('open', function () {
+    console.log('DB connection success! ');
+});
 
-if (process.env.PORT !== "test") {
-  app.use(morgan("combined"));
-}
+/****************************** app Express config  ******************************/
+var app = express();
 
-// Parse application/json and look for raw text
-app.use(express.static(newFunction()));
-app.set("view engine", "ejs"); // Set the template engine
+app.set('view engine', 'ejs');
+app.set('views', __dirname + "/public/views");
+app.use('/', express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/json" }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+require('./routes')(app);
 
-// app.get('/', (req, res) => res.json({ message: 'Welcome to Book list' }));
+/******************************   ******************************/
 
-// Connect Database
-// mongoose.connect("mongodb://localhost:27017/econsult", {
-//   useMongoClient: true,
-// });
-mongoose.connect("mongodb://admin:admin@ds113825.mlab.com:13825/econsult", {
-  useMongoClient: true,
-});
-mongoose.Promise = Promise;
-// app.set('view engine', 'ejs');
-app.use("/", router);
+/******************************  CONFIG HTTP SERVER  ******************************/
 
-app.listen(port, () => {
-  console.log("App is running");
-});
-// export all modules for testing
-module.exports = app;
-function newFunction() {
-  return `${__dirname}/public`;
-}
-
+var server = http.createServer(app).listen(
+    (process.env.PORT || require("./app_config.json").SERVER_PORT),
+    function () {
+        var host = server.address().address;
+        var port = server.address().port;
+        console.log("Example app listening at http://%s:%s", host, port);
+    }
+);
