@@ -26,7 +26,10 @@ app.use(bodyParser.json({ type: "application/json" }));
 // app.get('/', (req, res) => res.json({ message: 'Welcome to Book list' }));
 
 // Connect Database
-mongoose.connect("mongodb://localhost:27017/econsult", {
+// mongoose.connect("mongodb://localhost:27017/econsult", {
+//   useMongoClient: true,
+// });
+mongoose.connect("mongodb://admin:admin@ds113825.mlab.com:13825/econsult", {
   useMongoClient: true,
 });
 mongoose.Promise = Promise;
