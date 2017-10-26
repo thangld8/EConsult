@@ -4,7 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
-import router from "../routes/routes";
+import router from "../../routes/routes";
 
 const app = express();
 
