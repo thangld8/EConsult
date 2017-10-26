@@ -28,7 +28,9 @@
     "eslint-plugin-import": "^2.7.0"
   },
   "scripts": {
-    "start": "babel-node server.js --presets es2015,stage-2"
+    "start": "babel-node server.js --presets es2015,stage-2",
+    "build": "babel *.js -d dist"
+
   },
   "keywords": [],
   "author": "",
