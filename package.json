@@ -28,10 +28,13 @@
     "eslint-plugin-import": "^2.7.0"
   },
   "scripts": {
-    "start": "babel-node server.js --presets es2015,stage-2",
-    "build": "babel *.js -d dist"
+    "start1": "babel-node server.js --presets es2015,stage-2",
+    "start": "node ./dist/app/app.js",
+    "build": "babel app/*.js -d dist"
 
   },
+  "build": "babel app/*.js -d dist",
+  "start": "node ./dist/app/app.js",
   "keywords": [],
   "author": "",
   "license": "ISC"
