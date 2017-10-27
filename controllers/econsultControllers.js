@@ -132,13 +132,15 @@ module.exports = {
                 backgroundColor: req.body.backgroundColor,
                 content: req.body.content,
                 writer: req.body.writer,
-                createDate: Date.now(),
-
+                createDate: Date.now()
             });
            
             Post.create(post,function (err, newData) {
                 if(!err)
                     res.json(newData);
+                else  res.json({
+                    message: error,
+                });
             })
         } catch (error) {
             res.json({
