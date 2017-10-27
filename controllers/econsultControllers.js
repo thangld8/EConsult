@@ -149,8 +149,8 @@ module.exports = {
     },
     login: function (req, res) {
         // console.log(`req:${JSON.stringify(req)}`);
-
-            User.findOne({user_name: req.body.aName, password: req.body.aPass}).exex(function (err, data) {
+            console.log(req.body.aName)
+            User.findOne({user_name: req.body.aName, password: req.body.aPass}).exec(function (err, data) {
                 if(!data || err){
                     console.log("invalid user or password!");
                     // res.send(500,'showAlert');
