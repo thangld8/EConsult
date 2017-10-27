@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Công ty luật EConsult</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+	<link rel="stylesheet" href="css/main.css">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Custom Fonts & Icons -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/icomoon-social.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	
+	<script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	
+
+</head>
+
+<body>
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+	<![endif]-->
+
+   <!--<embed type="text/html" class=" navbar-fixed-top" style="height:16%;width:100%" src="header.html">-->
+	<% include header.ejs %>
+	<script>
+		//Test JSON
+		//var text = '{"new":[' +
+		//				'{"embeddedLink":"https://imgur.com/ER2HkJP","title":"Doe","backgroundColor":"blue","content":"Đây là bài mẫu thứ nhất.","writer":"TuyenLA","createDate":"2012-04-23T18:25:43.511Z"},' +
+		//				'{"embeddedLink":"https://imgur.com/ER2HkJP","title":"Doe","backgroundColor":"blue","content":"Đây là bài mẫu thứ hai.","writer":"TuyenLA","createDate":"2012-04-23T18:25:43.511Z"},' +
+		//				'{"embeddedLink":"https://imgur.com/ER2HkJP","title":"Doe","backgroundColor":"blue","content":"Đây là bài mẫu thứ ba.","writer":"TuyenLA","createDate":"2012-04-23T18:25:43.511Z"}]}';
+		//myData = JSON.parse(text);
+		var myData = <%- JSON.stringify(result) %>;
+	</script>
+	<div class="section section-breadcrumbs" style="margin-top: 10%">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h1>News</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section section-no-padding">
+		<div class="container">
+			<div class="row">
+				<!-- Featured News -->
+				<div class="col-sm-9 featured-news">
+					<!-- Fill data from JSON -->
+					<script>
+						for(var i = 0; i < myData.length; i++){
+							document.write("<div class=\"row\">");
+							document.write("<div class=\"col-xs-3\">");
+							document.write("<form id=\"detailForm\" action=\"detailPage\" method=\"post\">");
+							document.write("<input type=\"hidden\" name=\"pageID\" id=\"pageID\" value=\""+ myData[i].id +"\">");
+							document.write("<button type=\"submit\" style=\"border:none; background-color:transparent; height:100%; width:100%;\">");
+							document.write(myData[i].embeddedLink);
+							document.write("</button></form>");
+							document.write("</div>");
+							document.write("<div class=\"col-xs-8\">");
+							document.write("<div class=\"caption\">");
+							document.write("<form id=\"detailForm\" action=\"detailPage\" method=\"post\">");
+							document.write("<input type=\"hidden\" name=\"pageID\" id=\"pageID\" value=\""+ myData[i].id +"\">");
+							document.write("<button type=\"submit\" style=\"border:none; background-color:transparent; height:100%; width:100%;\">");
+							document.write(myData[i].title);
+							document.write("</button></form>");
+							document.write("</div>");
+							document.write("<div class=\"date\">" + myData[i].createDate + "</div>");
+							document.write("<div class=\"intro\">" + myData[i].content);
+							document.write("<form id=\"detailForm\" action=\"detailPage\" method=\"post\">");
+							document.write("<input type=\"hidden\" name=\"pageID\" id=\"pageID\" value=\""+ myData[i].id +"\">");
+							document.write("<button type=\"submit\" style=\"border:none; background-color:transparent; height:100%; width:100%;\">");
+							document.write("Read more...");
+							document.write("</button></form>");
+							document.write("</div>");
+							document.write("</div>");
+						}
+					</script>
+					<hr>
+				</div>
+				<!-- End Featured News -->
+				<!-- Latest News -->
+				<div class="col-sm-3">
+							
+				</div>
+				<!-- End Featured News -->
+			</div>
+		</div>
+	</div>
+  <!-- Footer -->
+  <% include footer.ejs %>
+		<div id="fixedBottom" style="background-image: url('img/resizeHotLine.jpg');height:80px;width:450px"><Button  class="primary-btn col-xs-11 text-left" id="fixedBottomButton"><strong><font size="5" color="#FAFAFA"><p>EConsult</p><p>0989633596</p></font></strong> </Button></div>
+		
+
+	<!-- Javascripts -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<!-- Scrolling Nav JavaScript -->
+	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/scrolling-nav.js"></script>		
+
+</body>
+</html>
