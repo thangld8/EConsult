@@ -22,48 +22,43 @@
         <![endif]-->
 	<% include header.login.ejs %>
 
+    <p style="margin-top: 10%;border: 1px" class="section"></p>
+    <section style="margin-bottom: 10%">
+        <div class="col-md-4 col-md-offset-4 container" >
+            <div class="col-md-12 text-center" style="background-color:#303F9F;border-radius: 5px">
+            <h3 style="text-align: center">
+                Đăng bài thành công!
+            </h3>
+            </div>
+            <div>
+                <hr>
+            </div>
+            
+            <div class="form-group" style="background-color: #B3E5FC;border-radius: 5px">
+                <p>Đăng bài thành công, bạn có muốn đăng thêm bài ?</p>
+                <p>Click Đăng bài để đăng thêm bài viết mới</p>
+                <p>Click Không để trở về trang chủ</p>
+            
+            <div class="col-md-6 text-center">
+                    <form id="myForm" action="reUp" method="get"> 
+                            <button type="submit" class="btn btn-primary btn-lg">Đăng bài</button>
+                    </form>
+                
+            </div>
+            <div class="col-md-6 text-center">
+                    <form id="myForm" action="index" method="get"> 
+                            <button type="submit" class="btn btn-primary btn-lg">Không</button>
+                    </form>
+                
+            </div>
+            </div>
+        </div>
+    </section>
 
-<hr>
-<p style="margin-top: 10%"></p>
-<form class="form" role="form" method="post" action="upPost" accept-charset="UTF-8" id="login-nav" style="height:100%;width:100%">
-    <div class="form-group" style="height:150%">
-        <p> <label >Link video</label>
-         <input type="text" class="form-control" id="embeddedLink" name="embeddedLink" placeholder="Tài Khoản" required></p>
-    </div>
-    <div class="form-group">
-         <label >Loại bài viết</label><br>
-         <input type="checkbox"  id="type" name="type" value="news" > Tin tức  <br>   
-         <input type="checkbox"  id="type" name="type" value="notice" > Thông báo <br>
-         <input type="checkbox"  id="type" name="type" value="event" >  Sự kiện <br>
-         <input type="checkbox"  id="type" name="type" value="hire" >   Tuyển dụng                                   
-    </div>
-    <div class="form-group">
-        <label >Tiêu đề</label>
-        <input type="text" class="form-control" id="subject" name="subject" placeholder="Tiêu đề" required>                                          
-   </div>
-   <div class="form-group">
-    <label >Phụ đề</label>
-    <input type="text" class="form-control" id="title" name="title" placeholder="Phụ đề" required>                                          
-</div>
-<div class="form-group">
-    <label >Màu nền bài viết</label>
-    <input type="text" class="form-control" id="backgroundColor" name="backgroundColor" placeholder="Màu nền bài viết" required>                                          
-</div>
-<div class="form-group">
-    <label >Nội dung</label>
-    <textarea rows="6" style="height: 30%" class="form-control" id="content" name="content" placeholder="Nội dung" required>    </textarea>                                      
-</div>
-<div class="form-group">
-    <label >Người đăng</label>
-    <input type="text" class="form-control" id="writer" name="writer" placeholder="Người đăng" required>                                          
-</div>
-    <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-primary btn-lg">Đăng bài</button>
-    </div>
-    
-</form>
-<p style="margin-top: 5%"></p>
-		<!-- Footer -->
+<p style="margin-top: 20%"></p>
+<hr style="margin-top: 10%">
+        <!-- Footer -->
+        <div style="margin-top: 10%"></div>
 		<% include footer.ejs %>
 		<div id="fixedBottom" style="background-image: url('img/resizeHotLine.jpg');height:80px;width:450px"><Button  class="primary-btn col-xs-11 text-left" id="fixedBottomButton"><strong><font size="5" color="#FAFAFA"><p>EConsult</p><p>0989633596</p></font></strong> </Button></div>
 		

@@ -62,13 +62,16 @@ module.exports = {
         }
 
         function callback5() {
-            var resultTotal = [resultNewest, resultNewestRelated, resultNews, resultNotice, resultEvent]
-            res.json(resultTotal);
+            var resultTotal = {"resultNewest":resultNewest, "resultNewestRelated":resultNewestRelated,"resultNews": resultNews,"resultNotice": resultNotice,"resultEvent": resultEvent};
+            //res.json(resultTotal);
+
         }
     },
     newsPost: function (req, res) {
         Post.find({type: "news"}).sort({createDate: -1}).exec(function (err, data) {
-            res.json(data);
+            //res.json(data);
+            result = data;
+            res.render("danhSachTinTuc.ejs", { result });
         })
     },
     notiPost: function (req, res) {
@@ -122,7 +125,11 @@ module.exports = {
     contactUs: function (req, res) {
         res.render("tuyen-dung.ejs");
     },
+    reUp: function (req, res) {
+        res.render("index.login.ejs");
+    },
     addPost: function (req, res) {
+        console.log(req.body);
         try {
             var post = new Post({
                 embeddedLink: req.body.embeddedLink,
@@ -137,11 +144,9 @@ module.exports = {
            
             Post.create(post,function (err, newData) {
                 if(!err)
-                    res.json(newData);
-                else  res.json({
-                    message: error,
-                });
+                    res.render("upNewPostResult.ejs");
             })
+            
         } catch (error) {
             res.json({
                 message: error,
@@ -151,13 +156,14 @@ module.exports = {
     },
     login: function (req, res) {
         // console.log(`req:${JSON.stringify(req)}`);
-            console.log(req.body.aName)
+
             User.findOne({user_name: req.body.aName, password: req.body.aPass}).exec(function (err, data) {
                 if(!data || err){
                     console.log("invalid user or password!");
                     // res.send(500,'showAlert');
                     // alert("failed");
-                    res.json({message: "login failed"});
+                    //res.json({message: "login failed"});
+                    res.render("loginFailed.ejs");
                 }
                 res.render("index.login.ejs");
                 console.log("valid");
