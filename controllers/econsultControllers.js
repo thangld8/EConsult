@@ -139,8 +139,7 @@ module.exports = {
                 backgroundColor: req.body.backgroundColor,
                 content: req.body.content,
                 writer: req.body.writer,
-                createDate: Date.now(),
-
+                createDate: Date.now()
             });
            
             Post.create(post,function (err, newData) {
