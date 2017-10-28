@@ -120,7 +120,7 @@ module.exports = {
         res.render("khoa-hoc.ejs");
     },
     hireEmp: function (req, res) {
-        res.render("tuyen-dung.ejs");
+        paging(req,res,"hire","tuyen-dung.ejs");
     },
     contactUs: function (req, res) {
         res.render("tuyen-dung.ejs");
@@ -175,4 +175,41 @@ module.exports = {
 
     }
 
+}
+
+
+function paging(req,res,type,ejs) {
+    var totalPage = 0;
+    var pageOptions = {
+        limit: req.query.limit || 5,
+        page: req.query.page || 1,
+
+    }
+    var totalPage ;
+    Post.count({type:type}).exec(function (err,count) {
+        if(!err){
+            totalPage = Math.ceil(count/pageOptions.limit) ;
+            console.log(totalPage)
+            if(pageOptions.page>totalPage){
+                res.status(404).send("Fail to load data");
+                return;
+            }
+
+            Post.find({type: type},null,{limit:+pageOptions.limit,skip:pageOptions.limit*(pageOptions.page-1)}).sort({
+                createDate: -1
+            }).exec(function (err,data) {
+                if(!err){
+                    var next = pageOptions.page+1>totalPage?pageOptions.page:pageOptions.page+1;
+                    var prev = pageOptions.page-1>0?pageOptions.page-1:pageOptions.page;
+                    var ret = {data:data,next:next,prev:prev,totalPage:totalPage}
+                    // res.json(ret);
+                    res.render(ejs,{result:ret});
+                }else {
+                    console.log(err)
+                    res.status(404).send("Fail to load data");
+                }
+
+            })
+        }
+    })
 }
