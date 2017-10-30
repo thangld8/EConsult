@@ -47,5 +47,5 @@ module.exports = function (app) {
     app.get("/hireEmp", controler.hireEmp);
     app.get("/contactUs", controler.contactUs);
     app.get("/reUp", controler.reUp);
-
+    app.get("/newestPostToEdit", controler.newestPostToEdit);
 }

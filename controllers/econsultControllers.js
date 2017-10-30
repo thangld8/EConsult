@@ -67,6 +67,13 @@ module.exports = {
 
         }
     },
+    newestPostToEdit: function (req, res) {
+        Post.find({}).limit(10).sort({createDate: -1}).exec(function (err, data) {
+            //res.json(data);
+            result = data;
+            res.render("newestPostToEdit.ejs", { result });
+        })
+    },
     newsPost: function (req, res) {
         Post.find({type: "news"}).sort({createDate: -1}).exec(function (err, data) {
             //res.json(data);
