@@ -135,11 +135,67 @@ module.exports = {
     reUp: function (req, res) {
         res.render("index.login.ejs");
     },
+    updatePost: function (req, res) {
+        if(req.body._id!=null){
+            var ebl="";
+            if(req.body.embeddedLink.search("<iframe")>=0){
+                ebl=req.body.embeddedLink;
+            }else if(req.body.embeddedLink.search("<img")>=0){
+                ebl=req.body.embeddedLink;
+            }else{
+                ebl="<img src=\""+req.body.embeddedLink+"\" alt=\"Smiley face\" height=\"100%\" width=\"100%\">";
+            }
+            console.log(req.body.embeddedLink);
+
+        Post.update({_id:req.body._id},{
+            embeddedLink: ebl,
+            type: req.body.type,
+            subject: req.body.subject,
+            title: req.body.title,
+            backgroundColor: req.body.backgroundColor,
+            content: req.body.content,
+            writer: req.body.writer,
+            createDate: Date.now()
+        }, function(err,data){
+            if(err){
+                res.json({message:err});
+            }
+            res.render("upNewPostResult.ejs");
+        })    
+        // Post.find({_id:req.body.idPost}).sort({createDate: -1}).exec(function (err, data) {
+        //  //res.json(data);
+        //     result = data;
+        //     res.render("editPost.ejs", { result });
+        // })
+        //res.json(req.body);
+    }
+    },
+    editPost: function (req, res) {
+        if(req.body.idPost!=null){
+            console.log(req.body.idPost);
+        Post.find({_id:req.body.idPost}).sort({createDate: -1}).exec(function (err, data) {
+         //res.json(data);
+            result = data;
+            res.render("editPost.ejs", { result });
+        })
+    }
+    },
     addPost: function (req, res) {
         console.log(req.body);
         try {
+            var n,strAfterProcess;
+            if(req.body.embeddedLink != null ){
+            n = req.body.embeddedLink.search("<iframe");
+            if(n>=0){
+                    strAfterProcess = "<iframe width=\"100%\" height=\"100%\" src=\""+ req.body.embeddedLink.split("\"")[5]+"\" frameborder=\"0\" allowfullscreen></iframe>";
+                }
+            if(n==-1){    
+                strAfterProcess = "<img src=\""+req.body.embeddedLink+"\" alt=\"Smiley face\" height=\"100%\" width=\"100%\">"; 
+            }               
+            }
+           
             var post = new Post({
-                embeddedLink: req.body.embeddedLink,
+                embeddedLink: strAfterProcess,
                 type: req.body.type,
                 subject: req.body.subject,
                 title: req.body.title,

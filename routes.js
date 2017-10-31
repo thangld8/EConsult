@@ -48,4 +48,6 @@ module.exports = function (app) {
     app.get("/contactUs", controler.contactUs);
     app.get("/reUp", controler.reUp);
     app.get("/newestPostToEdit", controler.newestPostToEdit);
+    app.post("/editPost", controler.editPost);
+    app.post("/updatePost", controler.updatePost);
 }
