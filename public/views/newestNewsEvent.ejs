@@ -81,6 +81,17 @@
 							</div>	
 					<%});%>
 					
+					<hr>
+					<div style="text-align: center;">
+						<form id="myForm" action="newestNewsEvent" method="get">
+							<input type="hidden" name="page" id="page" value="<%= resultTotal.prev %>" >
+							<button type="text" class="btn" style="">&lt;&lt; Prev</button>
+						</form>
+						<form id="myForm" action="newestNewsEvent" method="get">
+							<input type="hidden" name="page" id="page" value="<%= resultTotal.next %>" >
+							<button type="text" class="btn" style="">Next &gt;&gt;</button>
+						</form>
+					</div>
 					
 					<hr>
 				</div>
