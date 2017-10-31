@@ -274,7 +274,7 @@ module.exports = {
 function paging(req,res,type,ejs) {
     var totalPage = 0;
     var pageOptions = {
-        limit: req.query.limit || 5,
+        limit: req.query.limit || 10,
         page: req.query.page || 1,
 
     }
@@ -294,7 +294,7 @@ function paging(req,res,type,ejs) {
                 if(!err){
                     var next = pageOptions.page+1>totalPage?pageOptions.page:pageOptions.page+1;
                     var prev = pageOptions.page-1>0?pageOptions.page-1:pageOptions.page;
-                    var ret = {data:data,next:next,prev:prev,totalPage:totalPage}
+                    var ret = {data:data,current:+pageOptions.page,next:next,prev:prev,totalPage:totalPage}
                     // res.json({result:ret});
                     res.render(ejs,{result:ret});
                 }else {
