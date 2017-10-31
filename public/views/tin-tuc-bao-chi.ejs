@@ -63,7 +63,7 @@
 					</div>
 					
 					<div class="single-post-content">
-						<%= resultTotal.resultNewest[0].content%>
+						<%= resultTotal.resultNewest[0].content.substring(0,600)%>
 						<form id="detailForm" action="detailPage" method="post">
 							<input type="hidden" name="pageID" id="pageID" value="<%= resultTotal.resultNewest[0]._id %>" >
 							<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">Đọc tiếp ...
