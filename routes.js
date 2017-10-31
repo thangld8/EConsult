@@ -50,4 +50,8 @@ module.exports = function (app) {
     app.get("/newestPostToEdit", controler.newestPostToEdit);
     app.post("/editPost", controler.editPost);
     app.post("/updatePost", controler.updatePost);
+    app.post("/detailPage", controler.detailPage);
+    app.get("/newestNewsPost", controler.newestNewsPost);
+    app.get("/newestNewsNotice", controler.newestNewsNotice);
+    app.get("/newestNewsEvent", controler.newestNewsEvent);
 }

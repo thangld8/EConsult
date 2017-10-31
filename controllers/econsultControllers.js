@@ -64,7 +64,7 @@ module.exports = {
         function callback5() {
             var resultTotal = {"resultNewest":resultNewest, "resultNewestRelated":resultNewestRelated,"resultNews": resultNews,"resultNotice": resultNotice,"resultEvent": resultEvent};
             //res.json(resultTotal);
-
+            res.render("tin-tuc-bao-chi.ejs", { resultTotal });
         }
     },
     newestPostToEdit: function (req, res) {
@@ -127,7 +127,16 @@ module.exports = {
         res.render("khoa-hoc.ejs");
     },
     hireEmp: function (req, res) {
-        paging(req,res,"hire","tuyen-dung.ejs");
+        paging(req,res,"hire","newestNewsHire.ejs");
+    },
+    newestNewsPost: function (req, res) {
+        paging(req,res,"news","newestNewsPost.ejs");
+    },
+    newestNewsNotice: function (req, res) {
+        paging(req,res,"notice","newestNewsNotice.ejs");
+    },
+    newestNewsEvent: function (req, res) {
+        paging(req,res,"event","newestNewsEvent.ejs");
     },
     contactUs: function (req, res) {
         res.render("tuyen-dung.ejs");
@@ -177,6 +186,27 @@ module.exports = {
          //res.json(data);
             result = data;
             res.render("editPost.ejs", { result });
+        })
+    }
+    },
+    detailPage: function (req, res) {
+        if(req.body.pageID!=null){
+            console.log(req.body.pageID);
+        Post.find({_id:req.body.pageID}).sort({createDate: -1}).exec(function (err, data) {
+         //res.json(data);
+            //var resultRelated;
+            result = data;
+            // Post.find({type: result[0].type}).limit(3).sort({createDate: -1}).exec(function (err, dataPageRelated) {
+            //     if (!err && dataPageRelated) {
+            //         resultRelated = dataPageRelated;
+            //        // res.json(result,resultRelated);
+            //        // callback5();
+            //        res.json({result},{resultRelated});
+            //     } else
+            //         throw err;
+            // })
+            
+           res.render("chi-tiet-bai-viet.ejs", { result });
         })
     }
     },
@@ -254,7 +284,7 @@ function paging(req,res,type,ejs) {
             totalPage = Math.ceil(count/pageOptions.limit) ;
             console.log(totalPage)
             if(pageOptions.page>totalPage){
-                res.status(404).send("Fail to load data");
+                res.render("loginFailed.1.ejs");
                 return;
             }
 
@@ -265,11 +295,11 @@ function paging(req,res,type,ejs) {
                     var next = pageOptions.page+1>totalPage?pageOptions.page:pageOptions.page+1;
                     var prev = pageOptions.page-1>0?pageOptions.page-1:pageOptions.page;
                     var ret = {data:data,next:next,prev:prev,totalPage:totalPage}
-                    // res.json(ret);
+                    // res.json({result:ret});
                     res.render(ejs,{result:ret});
                 }else {
                     console.log(err)
-                    res.status(404).send("Fail to load data");
+                    res.render("loginFailed.1.ejs");
                 }
 
             })
