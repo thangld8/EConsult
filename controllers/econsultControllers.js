@@ -1,6 +1,6 @@
 var User = require("../models/userModel");
 var Post = require("../models/postModel");
-
+var nodemailer = require('nodemailer');
 
 module.exports = {
     homePage: function (req, res) {
@@ -139,7 +139,40 @@ module.exports = {
         paging(req,res,"event","newestNewsEvent.ejs");
     },
     contactUs: function (req, res) {
-        res.render("tuyen-dung.ejs");
+        res.render("contact-us.ejs");
+    },
+    sendContact: function (req, res) {
+        if(req.body.mail!=null){
+            var strContentEmail;
+            strContentEmail = "Name:"+req.body.name +"  |  Email:"+req.body.mail+"  |  Address:"+req.body.address+"  |  Phone:"
+            +req.body.phone+"  |  Tittle:"+req.body.tittle+"  |  Message:"+req.body.message;
+
+        
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'thangldse03529@gmail.com',
+              pass: 'thang1995'
+            }
+          });
+          
+          var mailOptions = {
+            from: 'thangldse03529@gmail.com',
+            to: '12a1pxa2013@gmail.com',
+            subject: ' Econsult - Thông tin khách hàng',
+            text: strContentEmail
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+          res.render("sendContactResult.ejs");
+        }
+       // 
     },
     reUp: function (req, res) {
         res.render("index.login.ejs");

@@ -54,4 +54,5 @@ module.exports = function (app) {
     app.get("/newestNewsPost", controler.newestNewsPost);
     app.get("/newestNewsNotice", controler.newestNewsNotice);
     app.get("/newestNewsEvent", controler.newestNewsEvent);
+    app.post("/sendContact", controler.sendContact);
 }
