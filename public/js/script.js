@@ -3,3 +3,4 @@ $(document).ready(function(){
     $("#header").html(data);
   });
 }); 
+$("textarea").resizable();
