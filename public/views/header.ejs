@@ -71,6 +71,13 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dịch vụ <i class="icon-angle-down"></i></a>
                             <ul class="dropdown-menu">
+                                <li>
+                                            <a>                                        
+                                                <form id="myForm" action="newestNewsService" method="get"> 
+                                                        <button style="border: none;background-color: transparent;height: 100%;width: 100%;text-align: left" type="submit" >Bài viết dịch vụ</button>
+                                                </form>
+                                            </a>
+                                </li>
                                 <li border="1px">
                                     <a>                                      
                                         <form id="myForm" action="priceTable" method="get"> 
@@ -78,6 +85,7 @@
                                         </form>
                                     </a>  
                                 </li>
+                                
                                 <li>
                                     <a>                                        
                                         <form id="myForm" action="shareServices" method="get"> 
@@ -120,11 +128,27 @@
                                 <li>EConsult</li>
                             </ul>
                         </li>
-                        <li><a>                            
-                            <form id="myForm" action="course" method="get"> 
-                                    <button style="border: none;background-color: transparent;height: 100%;width: 100%;text-align: left" type="submit" >Khóa học</button>
-                            </form>
-                        </a></li>
+                        <li class="dropdown">  
+                                <a style="">                      
+                               <form id="myForm" action="course" method="get"> 
+                                   <button style="border: none;background-color: transparent;" type="submit" >Khóa học<i class="icon-angle-down"></i></button>
+                               </form>
+                           </a>
+                               <ul class="dropdown-menu">
+                                  
+                                   <li>
+                                       <a>
+                                           <form id="myForm" action="newestNewsCourse" method="get"> 
+                                               <button style="border: none;background-color: transparent;height: 100%;width: 100%;text-align: left" type="submit" >Các bài viết và báo chí</button>
+                                           </form>
+                                       </a>
+                                   </li>    
+                                    
+                                            
+                                   <li class="divider"></li>
+                                   <li>EConsult</li>
+                               </ul>
+                           </li>
                         
                         <li><a>                            
                             <form id="myForm" action="hireEmp" method="get"> 

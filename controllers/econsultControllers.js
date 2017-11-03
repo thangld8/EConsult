@@ -86,6 +86,7 @@ module.exports = {
             res.render("danh-sach-tin-tuc.ejs", {result: data});
         })
     },
+    
     eventPost: function (req, res) {
             Post.find({type: "event"}).sort({createDate: -1}).exec(function (err,data) {
                 if(err) res.status(404).send("NotFound");
@@ -137,6 +138,12 @@ module.exports = {
     },
     newestNewsEvent: function (req, res) {
         paging(req,res,"event","newestNewsEvent.ejs");
+    },
+    newestNewsService: function (req, res) {
+        paging(req,res,"service","newestNewsService.ejs");
+    },
+    newestNewsCourse: function (req, res) {
+        paging(req,res,"course","newestNewsCourse.ejs");
     },
     contactUs: function (req, res) {
         res.render("contact-us.ejs");
