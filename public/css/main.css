@@ -23,6 +23,10 @@ body {
 .noPadding {
 	padding: 0 !important;
 }
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #ffffff !important;
+    background-color: rgb(153, 177, 23) !important;
+}
 .section {
   padding: 10px 0;
   -webkit-transform: translateZ(0);
