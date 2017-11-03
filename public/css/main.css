@@ -99,28 +99,28 @@ body {
   font-family: Arial, 'Helvetica', sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #535b60;
+  color: #000000;
 }
 h1 {
   color: #3399FF;
-  font-family: 'Lato', sans-serif;
+  font-family: -webkit-pictographif;
   font-weight: 800;
 }
 h2 {
   color: #3399FF;
-  font-family: 'Lato', sans-serif;
+  font-family: -webkit-pictographif;
   font-size: 2em;
   line-height: 1.5em;
   margin: 30px 0 0 0;
 }
 h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: -webkit-pictographif;
   color: #AEC62C;
   font-size: 1.5em;
 }
 h4 {
-  font-family: 'Lato', sans-serif;
-  color: #53555c;
+  font-family: -webkit-pictographif;
+  color: #000000;
   margin-bottom: 10px;
 }
 a {
@@ -665,7 +665,7 @@ border:none;
   margin: 30px 0 20px 0;
 }
 .single-post-content p {
-  color: #828282;
+  color: #000000;
   font-size: 0.9em;
   text-align: justify;
 }
