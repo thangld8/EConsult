@@ -30,6 +30,7 @@ module.exports = function (app) {
     app.get("/index", controler.homePage);
     app.post("/login", controler.login);
     app.post("/upPost", controler.addPost);
+    app.post("/sendContact", controler.sendContact);
     app.get("/newsPost", controler.newsPost);
     app.get("/notiPost", controler.notiPost);
     app.get("/eventPost", controler.eventPost);
@@ -56,4 +57,17 @@ module.exports = function (app) {
     app.get("/newestNewsEvent", controler.newestNewsEvent);
     app.get("/newestNewsService", controler.newestNewsService);
     app.get("/newestNewsCourse", controler.newestNewsCourse);
+    app.get("/course1", controler.course1);
+    app.get("/course2", controler.course2);
+    app.get("/course3", controler.course3);
+    app.get("/course4", controler.course4);
+    app.get("/course5", controler.course5);
+    app.get("/course6", controler.course6);
+    app.get("/course7", controler.course7);
+    app.get("/course8", controler.course8);
+    app.get("/course9", controler.course9);
+    app.get("/course10", controler.course10);
+    app.get("/course11", controler.course11);
+    app.get("/course12", controler.course12);
+    app.get("/course13", controler.course13);
 }

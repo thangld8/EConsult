@@ -4058,7 +4058,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
   color: #FF5722;
-  background-color: #000000;
+ 
 }
 .navbar-inverse .navbar-text {
   color: #999;

@@ -158,14 +158,14 @@ module.exports = {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-              user: 'thangldse03529@gmail.com',
-              pass: 'thang1995'
+              user: 'vn.moonlight2016@gmail.com',
+              pass: 'leminhtrang'
             }
           });
           
           var mailOptions = {
-            from: 'thangldse03529@gmail.com',
-            to: '12a1pxa2013@gmail.com',
+            from: 'vn.moonlight2016@gmail.com',
+            to: 'econsulthn@gmail.com',
             subject: ' Econsult - Thông tin khách hàng',
             text: strContentEmail
           };
@@ -228,6 +228,45 @@ module.exports = {
             res.render("editPost.ejs", { result });
         })
     }
+    },
+    course1: function (req, res) {
+        res.render("course-01.ejs");
+    },
+    course2: function (req, res) {
+        res.render("course-02.ejs");
+    },
+    course3: function (req, res) {
+        res.render("course-03.ejs");
+    },
+    course4: function (req, res) {
+        res.render("course-04.ejs");
+    },
+    course5: function (req, res) {
+        res.render("course-05.ejs");
+    },
+    course6: function (req, res) {
+        res.render("course-06.ejs");
+    },
+    course7: function (req, res) {
+        res.render("course-07.ejs");
+    },
+    course8: function (req, res) {
+        res.render("course-08.ejs");
+    },
+    course9: function (req, res) {
+        res.render("course-09.ejs");
+    },
+    course10: function (req, res) {
+        res.render("course-010.ejs");
+    },
+    course11: function (req, res) {
+        res.render("course-011.ejs");
+    },
+    course12: function (req, res) {
+        res.render("course-012.ejs");
+    },
+    course13: function (req, res) {
+        res.render("course-013.ejs");
     },
     detailPage: function (req, res) {
         if(req.body.pageID!=null){
