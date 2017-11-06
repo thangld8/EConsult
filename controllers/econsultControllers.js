@@ -257,16 +257,16 @@ module.exports = {
         res.render("course-09.ejs");
     },
     course10: function (req, res) {
-        res.render("course-010.ejs");
+        res.render("course-10.ejs");
     },
     course11: function (req, res) {
-        res.render("course-011.ejs");
+        res.render("course-11.ejs");
     },
     course12: function (req, res) {
-        res.render("course-012.ejs");
+        res.render("course-12.ejs");
     },
     course13: function (req, res) {
-        res.render("course-013.ejs");
+        res.render("course-13.ejs");
     },
     detailPage: function (req, res) {
         if(req.body.pageID!=null){
