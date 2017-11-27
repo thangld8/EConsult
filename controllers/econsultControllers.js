@@ -236,12 +236,7 @@ module.exports = {
             //res.json(data);
                result = data;
                res.render("editPost.ejs", { result });
-           });    
-        // Post.find({_id:req.body.idPost}).sort({createDate: -1}).exec(function (err, data) {
-        //  //res.json(data);
-        //     result = data;
-        //     res.render("editPost.ejs", { result });
-        // })
+           });   
     }    
     },
     course1: function (req, res) {
