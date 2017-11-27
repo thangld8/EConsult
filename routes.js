@@ -30,6 +30,7 @@ module.exports = function (app) {
     app.get("/index", controler.homePage);
     app.post("/login", controler.login);
     app.post("/upPost", controler.addPost);
+    app.post("/deletePost", controler.deletePost);
     app.post("/sendContact", controler.sendContact);
     app.get("/newsPost", controler.newsPost);
     app.get("/notiPost", controler.notiPost);

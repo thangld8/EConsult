@@ -661,6 +661,7 @@ a:hover {
 }
 .single-post-image {
   text-align: center;
+  height: 70px;
 }
 .single-post-image img {
 border:none;

@@ -62,7 +62,7 @@
 								<h2><%=result[0].subject%></h2>
 							</div>
 
-							<div class="single-post-image" style="height: 80%">
+							<div class="single-post-image" style="height: 403px">
 								<% if(result[0].embeddedLink.search("<iframe")>=0){ %>
 									<iframe width="100%" height="100%" src="<%= result[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
 								<%}else{%>

@@ -47,11 +47,11 @@
 		<div class="container">
 			<!-- main news -->
 			<div class="col-sm-6 w75p">
-				<div class="blog-post blog-single-post">
-					<div class="single-post-title">
+				<div class="blog-post blog-single-post" >
+					<div class="single-post-title" >
 						<h2><%= resultTotal.resultNewest[0].title %></h2>
 					</div>
-					<div class="single-post-image">
+					<div class="single-post-image" style="height: 403px">
 						<% if(resultTotal.resultNewest[0].embeddedLink.search("<iframe")>=0){ %>
 							<iframe width="100%" height="100%" src="<%= resultTotal.resultNewest[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
 						<%}else{%>
@@ -85,7 +85,7 @@
 								<input type="hidden" name="pageID" id="pageID" value="<%= resultNewestRelated.id %>" >
 								<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
 									<% if(resultNewestRelated.embeddedLink.search("<iframe")>=0){ %>
-										<iframe width="100%" height="100%" src="<%= resultTotal.resultNewest[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
+										<iframe width="50px" height="50px" src="<%= resultTotal.resultNewest[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
 									<%}else{%>
 										<img src="<%= resultNewestRelated.embeddedLink.split("\"")[1]%>" alt="Smiley face" height="100%" width="100%">	
 									<%}%>

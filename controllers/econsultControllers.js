@@ -227,7 +227,22 @@ module.exports = {
             result = data;
             res.render("editPost.ejs", { result });
         })
-    }
+    }    
+    },
+    deletePost: function (req, res) {
+        if(req.body.idPost!=null){
+            console.log(req.body.idPost);
+        Post.remove({id:req.body.idPost}).exec(function (err, data) {
+            //res.json(data);
+               result = data;
+               res.render("editPost.ejs", { result });
+           });    
+        // Post.find({_id:req.body.idPost}).sort({createDate: -1}).exec(function (err, data) {
+        //  //res.json(data);
+        //     result = data;
+        //     res.render("editPost.ejs", { result });
+        // })
+    }    
     },
     course1: function (req, res) {
         res.render("course-01.ejs");
