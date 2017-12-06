@@ -49,7 +49,7 @@
 			<div class="col-sm-6 w75p">
 				<div class="blog-post blog-single-post" >
 					<div class="single-post-title" >
-						<h2><%= resultTotal.resultNewest[0].title %></h2>
+						<h2><%= resultTotal.resultNewest[0].subject %></h2>
 					</div>
 					<div class="single-post-image" style="height: 403px">
 						<% if(resultTotal.resultNewest[0].embeddedLink.search("<iframe")>=0){ %>
@@ -78,7 +78,7 @@
 				<div class="col-sm-6 w25p">
 					<div class="blog-post blog-current-post">
 						<div class="single-post-title">
-							<h4><%= resultNewestRelated.title %></h4>
+							<h4><%= resultNewestRelated.subject %></h4>
 						</div>
 						<div class="col-xs-4">
 							<form id="detailForm" action="detailPage" method="post">
@@ -137,7 +137,7 @@
 									<form id="detailForm" action="detailPage" method="post">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNews.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultNews.title %>
+											<%=  resultNews.subject %>
 										</button>
 									</form>
 								</div>
@@ -181,7 +181,7 @@
 									<form id="detailForm" action="detailPage" method="post">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNotice.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultNotice.title %>
+											<%=  resultNotice.subject %>
 										</button>
 									</form>
 								</div>
@@ -225,7 +225,7 @@
 									<form id="detailForm" action="detailPage" method="post">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultEvent.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultEvent.title %>
+											<%=  resultEvent.subject %>
 										</button>
 									</form>
 								</div>
