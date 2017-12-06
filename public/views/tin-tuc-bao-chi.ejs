@@ -63,8 +63,10 @@
 					</div>
 					
 					<div class="single-post-content">
+							<font size="4">
 						<%= resultTotal.resultNewest[0].content.substring(0,600)%>
-						<form id="detailForm" action="detailPage" method="post">
+					</font>
+						<form id="detailForm" action="detailPage" method="get">
 							<input type="hidden" name="pageID" id="pageID" value="<%= resultTotal.resultNewest[0]._id %>" >
 							<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">Đọc tiếp ...
 							</button>
@@ -81,13 +83,13 @@
 							<h4><%= resultNewestRelated.subject %></h4>
 						</div>
 						<div class="col-xs-4">
-							<form id="detailForm" action="detailPage" method="post">
+							<form id="detailForm" action="detailPage" method="get">
 								<input type="hidden" name="pageID" id="pageID" value="<%= resultNewestRelated.id %>" >
 								<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
 									<% if(resultNewestRelated.embeddedLink.search("<iframe")>=0){ %>
 										<iframe width="50px" height="50px" src="<%= resultTotal.resultNewest[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
 									<%}else{%>
-										<img src="<%= resultNewestRelated.embeddedLink.split("\"")[1]%>" alt="Smiley face" height="100%" width="100%">	
+										<img src="<%= resultNewestRelated.embeddedLink.split("\"")[1]%>" height="100%" width="100%">	
 									<%}%>
 								</button>
 							</form>
@@ -114,37 +116,38 @@
 					<h3>
 						<a>
 							<form id="myForm" action="newsPost" method="get"> 
-								<button style="border: none;background-color: transparent;height: 100%;width: 100%;text-align: left" type="submit" >Các bài viết báo chí</button>
+								<button style="border: none;background-color: transparent;height: 100%;width: 100%;text-align: left" type="submit" ><font size="6">Các bài viết báo chí</font></button>
 							</form>
 						</a>
 					</h3>
 					<% resultTotal.resultNews.forEach(function(resultNews){%>
 						<div class="row">
 							<div class="col-xs-3">
-								<form id="detailForm" action="detailPage" method="post">
+								<form id="detailForm" action="detailPage" method="get">
 									<input type="hidden" name="pageID" id="pageID" value="<%= resultNews.id %>" >
 									<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
 										<% if(resultNews.embeddedLink.search("<iframe")>=0){ %>
 											<iframe width="100%" height="100%" src="<%= resultTotal.resultNewest[0].embeddedLink.split("\"")[5] %>" frameborder="0" allowfullscreen></iframe>
 										<%}else{%>
-											<img src="<%= resultNews.embeddedLink.split("\"")[1]%>" alt="Smiley face" height="100%" width="100%">	
+											<img src="<%= resultNews.embeddedLink.split("\"")[1]%>" height="100%" width="100%">	
 										<%}%>
 									</button>
 								</form>
 							</div>
 							<div class="col-xs-8">
 								<div class="caption">
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNews.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultNews.subject %>
+												<font size="4">
+													<strong><%=  resultNews.subject %></strong>
 										</button>
 									</form>
 								</div>
 								<div class="date"><%=  resultNews.createDate %></div>
 								<div class="intro">
 									<%= resultNews.content.substring(0, 140) %>
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNews.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">Đọc tiếp...</button>
 									</form>
@@ -165,7 +168,7 @@
 					<% resultTotal.resultNotice.forEach(function(resultNotice){%>
 						<div class="row">
 							<div class="col-xs-3">
-								<form id="detailForm" action="detailPage" method="post">
+								<form id="detailForm" action="detailPage" method="get">
 									<input type="hidden" name="pageID" id="pageID" value="<%= resultNotice.id %>" >
 									<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
 										<% if(resultNotice.embeddedLink.search("<iframe")>=0){ %>
@@ -178,17 +181,17 @@
 							</div>
 							<div class="col-xs-8">
 								<div class="caption">
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNotice.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultNotice.subject %>
+												<strong><%=  resultNotice.subject %></strong>
 										</button>
 									</form>
 								</div>
 								<div class="date"><%=  resultNotice.createDate %></div>
 								<div class="intro">
 									<%= resultNotice.content.substring(0, 140) %>
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultNotice.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">Đọc tiếp...</button>
 									</form>
@@ -209,7 +212,7 @@
 					<% resultTotal.resultEvent.forEach(function(resultEvent){%>
 						<div class="row">
 							<div class="col-xs-3">
-								<form id="detailForm" action="detailPage" method="post">
+								<form id="detailForm" action="detailPage" method="get">
 									<input type="hidden" name="pageID" id="pageID" value="<%= resultEvent.id %>" >
 									<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
 										<% if(resultEvent.embeddedLink.search("<iframe")>=0){ %>
@@ -222,17 +225,17 @@
 							</div>
 							<div class="col-xs-8">
 								<div class="caption">
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultEvent.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">
-											<%=  resultEvent.subject %>
+												<strong><%=  resultEvent.subject %></strong>
 										</button>
 									</form>
 								</div>
 								<div class="date"><%=  resultEvent.createDate %></div>
 								<div class="intro">
 									<%= resultEvent.content.substring(0, 140) %>
-									<form id="detailForm" action="detailPage" method="post">
+									<form id="detailForm" action="detailPage" method="get">
 										<input type="hidden" name="pageID" id="pageID" value="<%= resultEvent.id %>" >
 										<button type="submit" style="border:none; background-color:transparent; height:100%; width:100%;">Đọc tiếp...</button>
 									</form>

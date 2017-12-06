@@ -279,9 +279,9 @@ module.exports = {
         res.render("course-13.ejs");
     },
     detailPage: function (req, res) {
-        if(req.body.pageID!=null){
-            console.log(req.body.pageID);
-        Post.find({_id:req.body.pageID}).sort({createDate: -1}).exec(function (err, data) {
+        if(req.query.pageID!=null){
+            console.log(req.query.pageID);
+        Post.find({_id:req.query.pageID}).sort({createDate: -1}).exec(function (err, data) {
          //res.json(data);
             //var resultRelated;
             result = data;

@@ -70,9 +70,9 @@
 								</div>
 								<div class="col-xs-8">
 									<div class="caption"><h3><%=data.subject%></h3></div>
-									<div class="date"><%=data.createDate%> </div>
-									<div class="intro"> <%=data.content.substring(0, 140)%> <a>
-										<form id="myForm" action="detailPage" method="post">
+									<div class="date"><h5><%=data.createDate%></h5> </div>
+									<div class="intro"><h4><%=data.content.substring(0, 140)%></h4>  <a>
+										<form id="myForm" action="detailPage" method="get">
 												<input type="hidden" name="pageID" value="<%=data._id%>">
 												<button type="submit" class="btn btn-primary btn-lg">Đọc thêm...</button>											
 										</form>
